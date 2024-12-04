@@ -28,7 +28,7 @@ npm install --legacy-peer-deps
 npm run dev
 ```
 
-2. Modo produccion:
+2. Modo producción:
 ```
 npm run build
 npm run start
@@ -48,9 +48,9 @@ npm run test
 ```
 
 3. Revisar Resultados: Las pruebas validarán los endpoints de la API, verificando funcionalidades como:
-· Obtener todos los videos.
-· Obtener un video por ID.
-· Incrementar las vistas y los "me gusta".
+- Obtener todos los videos.
+- Obtener un video por ID.
+- Incrementar las vistas y los "me gusta".
 
 ---
 
