@@ -12,7 +12,7 @@ Prueba técnica para Vidext de un reproductor de videos hecho con Next.js >15.
 ## **Instrucciones de Configuración**
   1. Clonar el repositorio:
 ```bash
-git clone https://github.com/your-username/video-player-app.git
+git clone [https://github.com/jaivial/prueba-tecnica.git]
 cd video-player-app
 ```
 
