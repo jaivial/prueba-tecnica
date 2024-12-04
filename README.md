@@ -59,6 +59,7 @@ npm run test
    - La página principal muestra una lista de todos los videos.
    - Cada vídeo tiene la información básica de título, subtítulo, imagen de previsualización e información de actividad de usuario de número de visitas y likes.
    - Para acceder a un vídeo se debe hacer click en un vídeo de la lista.
+   - 
 ![Página Principal](public/tutorial1.jpg)
 
 2. Reproductor de vídeo:
@@ -66,12 +67,12 @@ npm run test
    - La página contiene el título del vídeo, un menu Breadcrumb para saber en qué página se ubica y poder volver atrás.
    - Los controles del vídeo se encuentran al pasar el ratón por encima de la imagen.
    - El vídeo se reproduce automáticamente al cargar la página.
-![Página Principal](images/homepage.png)
+![Reproductor de víde](public/tutorial2.jpg)
 
 3. Dar Like a un vídeo:
    - En el contenedor debajo de la imagen del vídeo, puede hacer click sobre la mano con pulgar arriba para registrar un nuevo like.
    - Después puede hacer click en 'Inicio' en el menú y podrá ver registrados el número de likes y visualizaciones acumuluadas en cada vídeo.
    - Las visualizaciones se aumentan automáticamente al abrir la página de vídeo mediante SSR.
-![Página Principal](images/homepage.png)
+![Dar Like a un vídeo](public/tutorial3.jpg)
 
 ---
