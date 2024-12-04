@@ -1,107 +1,77 @@
-Video Player App
+## **Video Player App**
 Prueba técnica para Vidext de un reproductor de videos hecho con Next.js >15.
 
-**ÍNDICE**
+## **ÍNDICE**
 - [Instrucciones de Configuración](#instrucciones-de-configuración)
 - [Cómo Ejecutar la Aplicación](#cómo-ejecutar-la-aplicación)
-- [Pruebas de las Llamadas a la API](#pruebas-de-las-llamadas-a-la-api)
+- [Pruebas de las API con tRPC](#pruebas-de-las-api-con-trpc)
 - [Cómo Usar la Aplicación](#cómo-usar-la-aplicación)
-- [Capturas de Pantalla](#capturas-de-pantalla)
 
+---
 
 ## **Instrucciones de Configuración**
   1. Clonar el repositorio:
 ```bash
-npm install
-npm run dev
-  
-bash
-Copiar código
 git clone https://github.com/your-username/video-player-app.git
 cd video-player-app
-Install Dependencies: Ensure you have Node.js (version 18+) and npm installed. Run:
+```
 
-bash
-Copiar código
-npm install
-Environment Setup: Create a .env file in the root of the project with the following content:
+  2. Instalar las dependencias (método legacy por incompatibilidad con React 19)
+```bash
+npm install --legacy-peer-deps
+```
+---
 
-env
-Copiar código
-DATABASE_URL=<your-database-url>
-API_KEY=<your-api-key> # Replace these placeholders with actual values.
-How to Run the App
-Start the Development Server:
-
-bash
-Copiar código
+## **Cómo Ejecutar la Aplicación**
+1. Modo desarrollador:
+```bash
 npm run dev
-The app will be available at http://localhost:3000.
+```
 
-Production Build: To create a production build:
-
-bash
-Copiar código
+2. Modo produccion:
+```
 npm run build
 npm run start
-Run on a Different Port (Optional): Set a custom port with:
+```
 
-bash
-Copiar código
-PORT=4000 npm run dev
-Testing the API Calls
-Install Test Dependencies: Ensure you have jest and other test dependencies installed:
+---
 
-bash
-Copiar código
-npm install --save-dev jest supertest
-Run the Tests: Execute all tests using:
+## **Pruebas de las API con tRPC**
+1. Instalar Dependencias de Pruebas: Asegúrate de tener instalados jest y las demás dependencias necesarias:
+```
+npm install --save-dev jest supertest --legacy-peer-deps
+```
 
-bash
-Copiar código
+2. Ejecutar las pruebas:
+```
 npm run test
-Inspect Results: The tests will validate the API endpoints for functionalities like:
+```
 
-Fetching all videos.
-Fetching a video by ID.
-Liking and viewing videos.
-How to Use the App
-Home Page:
+3. Revisar Resultados: Las pruebas validarán los endpoints de la API, verificando funcionalidades como:
+· Obtener todos los videos.
+· Obtener un video por ID.
+· Incrementar las vistas y los "me gusta".
 
-The homepage displays a list of all videos.
-Each video has options to view or like it.
-View Video:
+---
 
-Click on a video to see its details and increment the view count.
-Like a Video:
+## **Cómo Usar la Aplicación**
+1. Página principal:
+   - La página principal muestra una lista de todos los videos.
+   - Cada vídeo tiene la información básica de título, subtítulo, imagen de previsualización e información de actividad de usuario de número de visitas y likes.
+   - Para acceder a un vídeo se debe hacer click en un vídeo de la lista.
+![Página Principal](images/homepage.png)
 
-Click the "Like" button to increase the like count.
-Search Videos:
+2. Reproductor de vídeo:
+   - Se muestra el reproductor de vídeo automático del elemento de la lista seleccionado.
+   - La página contiene el título del vídeo, un menu Breadcrumb para saber en qué página se ubica y poder volver atrás.
+   - Los controles del vídeo se encuentran al pasar el ratón por encima de la imagen.
+   - El vídeo se reproduce automáticamente al cargar la página.
+![Página Principal](images/homepage.png)
 
-Use the search bar to find specific videos.
-Screenshots
-Home Page
+3. Dar Like a un vídeo:
+   - En el contenedor debajo de la imagen del vídeo, puede hacer click sobre la mano con pulgar arriba para registrar un nuevo like.
+   - Después puede hacer click en 'Inicio' en el menú y podrá ver registrados el número de likes y visualizaciones acumuluadas en cada vídeo.
+   - Las visualizaciones se aumentan automáticamente al abrir la página de vídeo mediante SSR.
+![Página Principal](images/homepage.png)
 
-Description: A list of videos available for interaction.
-
-Video Details
-
-Description: Detailed view of a selected video.
-
-API Testing
-
-Description: Jest test results validating API endpoints.
-
-License
-This project is licensed under the MIT License.
-
-Notes:
-Replace placeholders like <your-database-url> with actual values.
-Add real screenshots where indicated.
-This README not only provides technical setup and testing instructions but also visually showcases how to use the app, making it both developer and user-friendly.
-
-
-
-
-
-
+---
