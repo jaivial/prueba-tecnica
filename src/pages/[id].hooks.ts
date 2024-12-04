@@ -1,7 +1,7 @@
 import { trpc } from "@/utils/trpc";
 import { useState } from "react";
 
-export const useHandleLike = (videoLikes: number) => {
+const useHandleLike = (videoLikes: number) => {
 const [likes, setLikes] = useState<number>(videoLikes);
   const incrementLike = trpc.likeVideo.useMutation();
 
@@ -18,3 +18,5 @@ const [likes, setLikes] = useState<number>(videoLikes);
 
   return { handleLike, likes };
 };
+
+export default useHandleLike;

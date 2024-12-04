@@ -1,4 +1,3 @@
-import { trpc } from "../utils/trpc";
 import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
 import type { AppRouter } from "../server/routers/_app";
 import { VideoType } from "@/data/video";
@@ -9,7 +8,7 @@ import Footer from "@/components/index/Footer";
 import "../styles/globals.css";
 
 // SRP: Page component: responsible of context providers, ssr, and feature components.
-export default function IndexPage({ videos }: { videos: VideoType }) {
+export default function IndexPage({ videos }: { videos: VideoType[] }) {
   return (
     <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800 w-full min-h-dvh overflow-x-hidden p-10">
       <HeroSection />
@@ -29,7 +28,7 @@ export async function getServerSideProps() {
     ],
   });
 
-  let videos: VideoType | null = null;
+  let videos: VideoType[] | null = null;
 
   try {
     videos = await trpcClient.getVideos.query();

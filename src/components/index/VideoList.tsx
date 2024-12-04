@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { ThumbsUp, Eye } from "lucide-react";
 
 // SRP: UI component: responsible for just displaying final HTML.
-const VideoList: React.FC<{ videos: VideoType }> = ({ videos }) => {
+const VideoList: React.FC<{ videos: VideoType[] }> = ({ videos }) => {
   const router = useRouter();
 
   const cardStyle = {

@@ -1,7 +1,6 @@
 // src/components/VideoPlayer/VideoPlayerContainer.tsx
 import { VideoType } from "@/data/video";
 import { ThumbsUp, Eye } from "lucide-react";
-import ReactPlayer from "react-player";
 
 // SRP: UI component: responsible for just displaying final HTML.
 const VideoPlayerContainer: React.FC<{ views: number; likes: number; video: VideoType; onClick: (id: number) => void }> = ({ video, onClick, likes, views }) => {

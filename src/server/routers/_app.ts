@@ -23,7 +23,7 @@ export const appRouter = router({
       .mutation(({ input }) => {
          const matchingVideo = video.find((v) => v.id === input.id);
          if (!matchingVideo) {
-          throw new Error("video not found");
+          throw new Error("Video not found");
          }
          matchingVideo.likes += 1;
          return { success: true, likes: matchingVideo.likes };
@@ -34,7 +34,7 @@ export const appRouter = router({
       .mutation(({ input }) => {
          const matchingVideo = video.find((v) => v.id === input.id);
          if (!matchingVideo) {
-          throw new Error("video not found");
+          throw new Error("Video not found");
          }
          matchingVideo.views += 1;
          return { success: true, views: matchingVideo.views };
