@@ -5,8 +5,6 @@ import HeroSection from "../components/index/HeroSection";
 import VideoList from "../components/index/VideoList";
 import Footer from "@/components/index/Footer";
 
-import "../styles/globals.css";
-
 // SRP: Page component: responsible of context providers, ssr, and feature components.
 export default function IndexPage({ videos }: { videos: VideoType[] }) {
   return (

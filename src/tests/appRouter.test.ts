@@ -1,11 +1,8 @@
 import { appRouter } from '../server/routers/_app';
-import * as trpcNext from '@trpc/server/adapters/next';
-import { inferAsyncReturnType, initTRPC } from '@trpc/server';
 import { video } from '../data/video';
 
 
 // Mock context for testing
-type Context = inferAsyncReturnType<typeof createContext>;
 const createContext = () => ({}); // Adjust if you have a context function
 
 // Create a direct TRPC caller

@@ -7,7 +7,6 @@ import BreadCrumb from "@/components/VideoPlayer/BreadCrumb";
 import VideoPlayerContainer from "@/components/VideoPlayer/VideoPlayerContainer";
 import Footer from "@/components/index/Footer";
 import useHandleLike from "./[id].hooks";
-import "../styles/globals.css";
 
 type VideoPageProps = {
   video: VideoType | null; // Expect a single video
