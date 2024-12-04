@@ -13,7 +13,7 @@ Prueba técnica para Vidext de un reproductor de videos hecho con Next.js >15.
   1. Clonar el repositorio:
 ```bash
 git clone https://github.com/jaivial/prueba-tecnica.git
-cd video-player-app
+cd prueba-tecnica
 ```
 
   2. Instalar las dependencias (método legacy por incompatibilidad con React 19)
