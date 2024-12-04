@@ -59,7 +59,7 @@ npm run test
    - La página principal muestra una lista de todos los videos.
    - Cada vídeo tiene la información básica de título, subtítulo, imagen de previsualización e información de actividad de usuario de número de visitas y likes.
    - Para acceder a un vídeo se debe hacer click en un vídeo de la lista.
-![Página Principal](tutorial1.jpg)
+![Página Principal](public/tutorial1.jpg)
 
 2. Reproductor de vídeo:
    - Se muestra el reproductor de vídeo automático del elemento de la lista seleccionado.
