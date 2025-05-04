@@ -15,16 +15,25 @@ type VideoPageProps = {
 
 // SRP: Page component: responsible of context providers, ssr, and feature components.
 export default function VideoPlayer({ video, views }: VideoPageProps) {
-  const { handleLike, likes } = useHandleLike(Number(video?.likes));
+  const { handleLike, likes } = useHandleLike(video ? Number(video.likes) : 0);
+
+  // Si no hay video, esto solo debería ocurrir por un momento antes de la redirección
   if (!video) {
-    return <div>Video not found</div>;
+    return (
+      <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800 w-full h-screen flex justify-center items-center">
+        <div className="text-white text-xl">Redireccionando a la página principal...</div>
+      </div>
+    );
   }
+
+  // Asegurar que tenemos un objeto views válido
+  const viewCount = views?.views || 0;
 
   return (
     <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800 w-full h-[calc] overflow-x-hidden relative p-10">
       <HeroVideoPlayer title={video.titulo} />
       <BreadCrumb title={video.titulo} />
-      <VideoPlayerContainer video={video} onClick={handleLike} likes={likes} views={views.views} />
+      <VideoPlayerContainer video={video} onClick={handleLike} likes={likes} views={viewCount} />
       <Footer />
     </div>
   );
@@ -41,6 +50,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   });
 
   const { id } = context.params!;
+
+  // Validar que el ID existe y es un número válido
+  if (!id || isNaN(parseInt(id as string, 10))) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   const videoId = parseInt(id as string, 10);
 
   type viewsType = {
@@ -56,6 +76,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     views = await trpcClient.viewVideo.mutate({ id: videoId });
   } catch (error) {
     console.error("Error fetching video:", error);
+    // Si ocurre un error (por ejemplo, video no encontrado), redirigir a la página principal
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
   }
 
   return {

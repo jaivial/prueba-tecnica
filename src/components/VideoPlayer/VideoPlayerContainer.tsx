@@ -3,7 +3,10 @@ import { VideoType } from "@/data/video";
 import { ThumbsUp, Eye } from "lucide-react";
 
 // SRP: UI component: responsible for just displaying final HTML.
-const VideoPlayerContainer: React.FC<{ views: number; likes: number; video: VideoType; onClick: (id: number) => void }> = ({ video, onClick, likes, views }) => {
+const VideoPlayerContainer: React.FC<{ views: number | undefined; likes: number; video: VideoType; onClick: (id: number) => void }> = ({ video, onClick, likes, views = 0 }) => {
+  // Asegurar que views sea un número
+  const viewCount = typeof views === "number" ? views : 0;
+
   return (
     <div className="max-w-[1280px] mx-auto flex flex-col gap-7 animate-fadeIn">
       <video src={video.url} controls autoPlay className="w-full h-auto mt-4 mx-auto rounded-3xl border-[15px] border-gray-100" />
@@ -12,7 +15,7 @@ const VideoPlayerContainer: React.FC<{ views: number; likes: number; video: Vide
         <div className="w-full flex flex-row justify-start items-center gap-12">
           <div className="flex flex-row items-center justify-start gap-7">
             <Eye size={28} />
-            <p className="text-slate-950 text-2xl font-sans">{views}</p>
+            <p className="text-slate-950 text-2xl font-sans">{viewCount}</p>
           </div>
           <div className="flex flex-row items-center justify-start gap-4">
             <div className="rounded-full h-12 w-12 md:hover:bg-slate-400 md:hover:cursor-pointer md:hover:text-slate-100 flex justify-center items-center" onClick={() => onClick(video.id)}>
